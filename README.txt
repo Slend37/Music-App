@@ -1,19 +1,22 @@
-Гайд по использованию приложения:
+Firstly you have to move here some information from json file, which 
+you can get in google.api service after connection with spreadsheet.
 
-1) Запустите файл SlendMusic.py;
-2) Зарегистрируйтесь;
-3) Нажмите "Add Song";
-4) На сайте найдите нужную песню и скачайте ее;
-5) Переместите файл в папку с приложением;
-6) Перезапустите программу.
+Hyde on how to use the application:
 
-Используйте горячие клавишы:
-"pagedown" - поставить паузу/снять паузу
-"end" - следующая песня
+1) Run the SlendMusic.py file;
+2) Register;
+3) Click "Add Song";
+4) On the website, find the song you want and download it;
+5) Move the file to the application folder;
+6) Restart the program.
 
-Также у вас есть возможность скачать lyrics к песне:
-1) Найдите в интернете текст песни;
-2) Скопируйте его и вставьте в обычный .txt файл;
-3) Назовите этот файл номером этой песни в вашем плейлисте;
-4) Переместите файл в папку с приложением;
-5) Нажмите "pageup" во время прослушивания.
+Use the hotkeys:
+"pagedown" - pause/unpause the song
+"end" - next song.
+
+You also have the opportunity to download lyrics to the song:
+1) Find the lyrics to the song on the Internet;
+2) Copy it and paste it into a regular .txt file;
+3) Name this file with the number of that song in your playlist;
+4) Move the file to your app folder;
+5) Press "pageup" while listening.
