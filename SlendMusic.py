@@ -20,38 +20,17 @@ try:
     gc = gspread.service_account_from_dict({
       "type": "service_account",
       "project_id": "slend-music",
-      "private_key_id": "67a5b7dcf396fc7a7b5b61fe418d0c0088080d3f",
-      "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqh"
-                     "kiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC5T+vVQvqr4G4J\nS4t9s"
-                     "Fn2S7aNajMeDbFmpX9MWe5AkAEKhq2KfqEmoxA53P+znX0YvFFCnSlnu"
-                     "p7b\n0x3wK3PZK9b5g4ck87b2rZ+KFAckiWD6tfYLoyL+bLIRIw5n4bF/A5"
-                     "m5obR4FGxb\ndAWi39G/7EkjRTHlMLRp7DCUvccixBPeI2kQYQDVPBcSgOxOPn"
-                     "Yh5BZGg8T5oTJX\nzaG5z3qjisVkA96XDg+fN5HoJ4L+imox9frorcXEq4ei5Sq3J"
-                     "Kko/aetvLGNnU+N\n6Xc1liX4QbjuWsYpGozIG2qcA9J5IdxrmoauaBhnuWw52DaNz7"
-                     "VTvUSQekcu1+x/\ngnITw5sXAgMBAAECggEAEet+GUHgXrWVvnVdOFrQ4EXjEdrGta3KT"
-                     "WxMmpQJu5mR\nWDS83GsxZzyWiZnq6jIdEkLHsuLiyaKc0RIhz4NMMSCRqdBDxdmBhGo2xt"
-                     "H3/NsC\nE0x8ThTJAgR91bVno7kKAofVGkPeYUxMTC20i9MMA/yz9+KtmAW1NJb//ao6cwyL\n"
-                     "rTCxNgbIjJCLZ6zh8LbiChS5LihqjJaUZa0/XjqKi3aEtx2crsDT2WwP9WC8CU2L\nAxQk3vqP+3"
-                     "d0EGXyT5LVxHvtmyrjivlSnCNyHELFoUCJhhg2kHxj0ZofWyLXG/Yo\nsPwWHNcbMvJjFqTr6iTl9Q"
-                     "jgmU0PeOjUAkbrCdtpyQKBgQDxL8TSxHAUUm7rCrMl\nImr4MzR5hHdWKUtrasXcERhET+VA9XG94S4P"
-                     "Un0XLMagInDqcjcyT39+ae2PHvb6\ngU6cYHE2SiDUE/l8glWtj9iRnrWo/VtSppfYz/J2I2rBL6ctn04s"
-                     "tZGXjI8VguZ7\nzP0vTU5KgYCtvx0QqQn06B99aQKBgQDEsaBkyMz4QG32o+q3StDbJOJ/su/n77yP\nt2vJe"
-                     "i9Vl4bkHvr//xHDVZk9VbKgu4SsTJgwTmShjd0ncIU8Ko9oCrT0dx6dEltQ\nG6wYWQQXq9gX/qlsvFZMEzoF+L3"
-                     "RDDCiMGzIxuvzg4GCMrE8wpt2NqF8FMPiRNbL\neUiWqyDEfwKBgD1N2QeBqsNfmJXhqFtd/jaMPWBNzU93O5ZYE2a2a"
-                     "aajcDAssvaC\nkASRAP6tAOefGXheA62kC1IEdr+ULU7LI0IYOW6FNQby9M0zC7gMAg4xexczHs1J\nTvtrD8P7iJ0GEcZE"
-                     "4cf3dsRAk/XxycfZ+NjXG3lQpXaER0z+ymsXvTlRAoGAZlGw\nij0awxlhGqhydR7qPtWVLbC7s/+2K1zTKV/yN6g3d3vWPk1F"
-                     "xENHD+0AmzRw8+B0\nWsys9I2DufyCkqXhK9JGB9Xfiv39mlKK16+WvWmbZAAJypK+oZxu1qRqudCJjBV8\nwYUZQPfr6vrL0Du7+"
-                     "2a34oA61f3Rbs+MvzQOO6kCgYA4JpMjpAJw1HXzHNfBO/Ch\nd3IeLcKzvJzxqbwqtrtgWTS+dpsHWB2VntBpPZSilkeS5A4Y9bfAsLj"
-                     "fED2w111i\nL+jC2ITANF9wOP7vCWj4J4OO1Ynu5BByddKF4Pyd310KT2PvtaK4CwujDfwUWTZe\nd/KF1CeDSC9uClHgooZReQ==\n---"
+      "private_key_id": "YOUR PRIVATE KEY ID",
+      "private_key": "-----BEGIN PRIVATE KEY-----\n"
+        "YOUR PRIVATE KEY"
                      "--END PRIVATE KEY-----\n",
-      "client_email": "slend-408@slend-music.iam.gserviceaccount.com",
-      "client_id": "111550017901069868195",
+      "client_email": "YOUR EMAIL",
+      "client_id": "YOUR ID",
       "auth_uri": "https://accounts.google.com/o/oauth2/auth",
       "token_uri": "https://oauth2.googleapis.com/token",
       "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-      "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/slend-408%40slend-music.iam.gserviceaccount.com"
-    })
-    sh = gc.open_by_key("15rDL6NrxZk2s7pQOop5QpCnvOtXgxQ2iMN9znbMl1Hc")
+      "client_x509_cert_url": "YOUR URL"})
+    sh = gc.open_by_key("SPREADSHEETS KEY")
     ws = sh.worksheet("INFO")
     listed = sh.worksheet("Analytics")
 except:
