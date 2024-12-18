@@ -14,7 +14,7 @@ import http.client
 
 try:
     conn = http.client.HTTPConnection("ifconfig.me")
-    conn.request("GET","/ip")
+    conn.request("GET", "/ip")
     ip = conn.getresponse().read()
 
     gc = gspread.service_account_from_dict({
@@ -44,14 +44,14 @@ duration = []
 lyrics = []
 lyr = 0
 val = 0
-z=0
+z = 0
 
 if open("config.txt", "r").read() == '':
     win3 = tk.Tk()
     win3.title("Registation")
     win3.geometry('300x300')
-    win3.minsize(200,200)
-    win3.maxsize(200,200)
+    win3.minsize(200, 200)
+    win3.maxsize(200, 200)
     win3.resizable(0, 0)
     def save():
         print(ws.get('R2:R1000'))
@@ -62,28 +62,28 @@ if open("config.txt", "r").read() == '':
             print(psw.get())
             print(ws.get('S2:S1000')[0][check_id])
             if str(psw.get()) == str(ws.get('S2:S1000')[0][check_id]):
-                open("config.txt", "w").write(user.get()+"\n"+psw.get())
+                open("config.txt", "w").write(user.get() + "\n" + psw.get())
             else:
-                Label(win3,text='Wrong Password!').grid(row=3,column=1)
+                Label(win3, text = 'Wrong Password!').grid(row = 3,column = 1)
         else:
             open("config.txt", "w").write(user.get() + "\n" + psw.get())
     message = StringVar()
     message2 = StringVar()
-    Label(win3, text='Username: ').grid(row=0, column=0)
-    user = Entry(win3, textvariable=message)
-    user.grid(row=0, column=1)
-    Label(win3, text='Password: ').grid(row=1,column=0)
-    psw = Entry(win3,textvariable=message2)
-    psw.grid(row=1,column=1)
-    saveuser = Button(win3, text="Save",
-                      command=lambda: [save()])
-    saveuser.grid(row=2, column=1)
+    Label(win3, text='Username: ').grid(row = 0, column = 0)
+    user = Entry(win3, textvariable = message)
+    user.grid(row = 0, column = 1)
+    Label(win3, text = 'Password: ').grid(row = 1,column = 0)
+    psw = Entry(win3, textvariable = message2)
+    psw.grid(row = 1,column = 1)
+    saveuser = Button(win3, text = "Save",
+                      command = lambda: [save()])
+    saveuser.grid(row = 2, column = 1)
     win3.mainloop()
 else:
     for text in glob.glob('*.txt'):
         lyrics.append(text)
         print(lyrics)
-        lyr +=1
+        lyr += 1
         print(lyr)
     for file in glob.glob("*.mp3"):
         files.append(file)
@@ -96,68 +96,68 @@ else:
 
     if count > 15:
         def premium():
-            webbrowser.open("https://vk.com/alexslenderman", new=2)
-        tk.messagebox.showerror(title="ERROR", message="Buy Premium for using more than 15 songs")
+            webbrowser.open("https://vk.com/alexslenderman", new = 2)
+        tk.messagebox.showerror(title = "ERROR", message = "Buy Premium for using more than 15 songs")
         win = tk.Tk()
-        win.iconphoto(False, tk.PhotoImage(file="logo2.png"))
+        win.iconphoto(False, tk.PhotoImage(file = "logo2.png"))
         win.title('Slend Music Premium')
         win.geometry('500x300')
         win.minsize(500, 300)
         win.maxsize(500, 300)
         win.resizable(0, 0)
-        Label(win, width=10, height=2, text="0.99$\nFOREVER", font="Consolas 20").place(x=195, y=10)
-        Button(win, width=4, height=1, text="Buy", font="Consolas 50",
-               command=lambda: [premium()]).place(x=190, y=100)
+        Label(win, width = 10, height = 2, text = "0.99$\nFOREVER", font = "Consolas 20").place(x = 195, y = 10)
+        Button(win, width = 4, height = 1, text = "Buy", font = "Consolas 50",
+               command = lambda: [premium()]).place(x = 190, y = 100)
         win.mainloop()
     else:
         win = tk.Tk()
         fon = "#130C83"
-        win.config(bg=fon)
-        win.iconphoto(False, tk.PhotoImage(file="logo2.png"))
+        win.config(bg = fon)
+        win.iconphoto(False, tk.PhotoImage(file = "logo2.png"))
         win.title('Slend Music')
-        win.geometry("{0}x{1}+0+0".format(1366,768))
+        win.geometry("{0}x{1}+0+0".format(1366, 768))
         win.resizable(0, 0)
 
 
-        background_image = tk.PhotoImage(file='design.png')
-        background_label = tk.Label(win, image=background_image)
-        background_label.place(x=0, y=0, relwidth=1, relheight=1)
-        user_id = str(open("config.txt","r").readlines()[0][:-1])
-        user_psw = str(open("config.txt","r").readlines()[1])
-        username = Label(win, text='-'+'\n'+user_id,fg="white", bg=fon,font="Consolas 45")
-        livelabel = Label(win,height=10,width=16,text='    ',bg=fon,font="Consolas 30")
+        background_image = tk.PhotoImage(file = 'design.png')
+        background_label = tk.Label(win, image = background_image)
+        background_label.place(x = 0, y = 0, relwidth = 1, relheight = 1)
+        user_id = str(open("config.txt", "r").readlines()[0][:-1])
+        user_psw = str(open("config.txt", "r").readlines()[1])
+        username = Label(win, text = '-' + '\n' + user_id, fg = "white", bg = fon, font = "Consolas 45")
+        livelabel = Label(win, height = 10, width = 16, text = '    ', bg = fon, font = "Consolas 30")
 
         global var1
         def checkvar():
             print(var1.get())
         var1 = BooleanVar()
         var1.set(0)
-        repeat = Checkbutton(win,fg="white",bg=fon, text="Repeat",variable=var1, onvalue=1, offvalue=0,
-                             command=lambda:[checkvar()])
+        repeat = Checkbutton(win, fg = "white", bg = fon, text = "Repeat", variable = var1, onvalue = 1, offvalue = 0,
+                             command = lambda:[checkvar()])
 
         def play(forplay2):
             def lyricas(x):
                 try:
-                    x+=1
+                    x += 1
                     win2 = tk.Tk()
                     win2.title('Lyrics')
                     win2.geometry('400x640')
-                    win2.minsize(400,640)
-                    win2.maxsize(400,640)
+                    win2.minsize(400, 640)
+                    win2.maxsize(400, 640)
                     win2.resizable(0, 0)
-                    f = codecs.open(str(x)+".txt","r","utf_8_sig")
+                    f = codecs.open(str(x) + ".txt", "r", "utf_8_sig")
                     scrollbar = Scrollbar(win2)
-                    scrollbar.pack(side="right",fill="y")
-                    textbox = Listbox(win2, yscrollcommand=scrollbar.set,width=50)
+                    scrollbar.pack(side = "right", fill = "y")
+                    textbox = Listbox(win2, yscrollcommand = scrollbar.set, width = 50)
                     for i in range(200):
                         textbox.insert("end", f.readline())
-                    textbox.pack(side="left",fill="both")
-                    scrollbar.config(command=textbox.yview())
+                    textbox.pack(side = "left",fill = "both")
+                    scrollbar.config(command = textbox.yview())
                     win2.mainloop()
                 except:
                     pass
 
-            repeat.place(x=645, y=560)
+            repeat.place(x = 645, y = 560)
 
             global pause
             global cont
@@ -196,33 +196,33 @@ else:
                 second = 0
                 text1 = '0' + str(minute) + ':0' + str(second)
 
-                if len(forplay[x][0:forplay[x].find('.mp3')])>40:
-                    if forplay[x].find('mp3')>37 and forplay[x].find('mp3')<43:
-                        songlong = '  '*40+'\n' + str(forplay[x][0:forplay[x].find('.mp3')])
-                        songlabel = Label(win, text=songlong,fg="white", bg=fon, font="Comfortoo 8")
-                        songlabel.place(x=562, y=508)
+                if len(forplay[x][0:forplay[x].find('.mp3')]) > 40:
+                    if forplay[x].find('mp3') > 37 and forplay[x].find('mp3') < 43:
+                        songlong = '  ' * 40 + '\n' + str(forplay[x][0:forplay[x].find('.mp3')])
+                        songlabel = Label(win, text = songlong, fg = "white", bg = fon, font = "Comfortoo 8")
+                        songlabel.place(x = 562, y = 508)
                     else:
-                        songlong = '  '*40+'\n'+str(forplay[x][0:42]+'\n'+str(forplay[x][42:forplay[x].find('.mp3')]))
-                        songlabel = Label(win, text=songlong,fg="white", bg=fon, font="Comfortoo 8")
-                        songlabel.place(x=562, y=500)
+                        songlong = '  ' * 40 + '\n' + str(forplay[x][0:42]+ '\n' + str(forplay[x][42:forplay[x].find('.mp3')]))
+                        songlabel = Label(win, text = songlong, fg = "white", bg = fon, font = "Comfortoo 8")
+                        songlabel.place(x = 562, y = 500)
                 else:
-                    songlong = '  '*40+'\n'+str(forplay[x][0:forplay[x].find('.mp3')])
-                    songlabel = Label(win, text=songlong,fg="white", bg=fon, font="Comfortoo 8")
-                    songlabel.place(x=562, y=508)
+                    songlong = '  ' * 40 + '\n' + str(forplay[x][0:forplay[x].find('.mp3')])
+                    songlabel = Label(win, text = songlong, fg = "white", bg = fon, font = "Comfortoo 8")
+                    songlabel.place(x = 562, y = 508)
                 mixer.music.load(str(forplay[x]))
                 mixer.music.play()
                 try:
-                    works = ws.find('1', in_column=1)
-                    ws.update('B'+str(works.row),str(user_id))
-                    ws.update('C'+str(works.row),str(ip))
-                    ws.update('D'+str(works.row),str(forplay[x]))
-                    ws.update('E'+str(works.row),str(str(datetime.now())[0:str(datetime.now()).find('.')]))
-                    ws.update('F'+str(works.row),str(str(duration[x])[0:str(duration[x]).find('.')]))
-                    ws.update('P'+str(works.row),str(user_psw))
+                    works = ws.find('1', in_column = 1)
+                    ws.update('B' + str(works.row), str(user_id))
+                    ws.update('C' + str(works.row), str(ip))
+                    ws.update('D' + str(works.row), str(forplay[x]))
+                    ws.update('E' + str(works.row), str(str(datetime.now())[0:str(datetime.now()).find('.')]))
+                    ws.update('F' + str(works.row), str(str(duration[x])[0:str(duration[x]).find('.')]))
+                    ws.update('P' + str(works.row), str(user_psw))
                 except:
                     pass
-                Label(win, text=text1,fg="white",bg=fon, font="Comfortoo 10").place(x=512, y=522)
-                Label(win, text=text2,fg="white",bg=fon, font="Comfortoo 10").place(x=812, y=522)
+                Label(win, text = text1, fg = "white", bg = fon, font = "Comfortoo 10").place(x = 512, y = 522)
+                Label(win, text = text2, fg = "white", bg = fon, font = "Comfortoo 10").place(x = 812, y = 522)
 
                 time.sleep(1)
 
@@ -239,14 +239,14 @@ else:
                         global ab
                         global ax
                         global ay
-                        if ((second+minute*60)/duration[x])*100 > ab:
-                            line1 = Label(win, width=1, height=1, bg="#CFCFD8", text=' ', font="Consolas 3")
-                            line1.place(x=529+ax, y=548+ay)
+                        if ((second + minute * 60) / duration[x]) * 100 > ab:
+                            line1 = Label(win, width = 1, height = 1, bg = "#CFCFD8", text = ' ', font = "Consolas 3")
+                            line1.place(x = 529 + ax, y = 548 + ay)
                             ax += 11
                             ab += 3.57
                         startline = win.after(1000, lambda: [tracks()])
-                    bigline = Label(win, width=77, height=1, bg="#9814EB", text=' ', font="Consolas 5")
-                    bigline.place(x=527, y=547)
+                    bigline = Label(win, width = 77, height = 1, bg = "#9814EB", text = ' ', font = "Consolas 5")
+                    bigline.place(x = 527, y = 547)
                     tracks()
                 track()
                 global timer
@@ -265,11 +265,11 @@ else:
 
                         v = DoubleVar()
                         if z==0:
-                            scale = Scale(win, variable=v, from_=0, to=100,fg="white", bg=fon,
-                                          orient=HORIZONTAL)
-                            scalebut = Button(win,text="Set",command=lambda:[setvolume()])
-                            scale.place(x=622, y=585)
-                            scalebut.place(x=732,y=590)
+                            scale = Scale(win, variable = v, from_ = 0, to = 100, fg = "white", bg = fon,
+                                          orient = HORIZONTAL)
+                            scalebut = Button(win, text = "Set", command = lambda:[setvolume()])
+                            scale.place(x = 622, y = 585)
+                            scalebut.place(x = 732, y = 590)
                             z += 1
                         else:
                             pass
@@ -284,27 +284,27 @@ else:
                     else:
                         second += 1
                     if second < 10:
-                        secondtot = '0'+str(second)
+                        secondtot = '0' + str(second)
                     else:
                         secondtot = second
-                    text1 = '0'+str(minute)+':'+str(secondtot)
-                    Label(win, text=text1,fg="white",bg=fon, font="Comfortoo 10").place(x=512, y=522)
-                    if second+minute*60 < duration[x]:
+                    text1 = '0' + str(minute) + ':' + str(secondtot)
+                    Label(win, text = text1, fg = "white", bg = fon, font = "Comfortoo 10").place(x = 512, y = 522)
+                    if second+minute * 60 < duration[x]:
                         pass
                     else:
                         scale.set(val)
                         win.after_cancel(starttimer)
                         win.after_cancel(startline)
                         songlabel.destroy()
-                        bigline = Label(win, width=77, height=1, text=' ',fg="white",bg=fon, font="Consolas 5")
-                        bigline.place(x=527, y=547)
+                        bigline = Label(win, width = 77, height = 1, text = ' ', fg = "white", bg = fon, font = "Consolas 5")
+                        bigline.place(x = 527, y = 547)
                         if var1.get() == True:
                             x += 1
                             play(x)
                         else:
                             x += 2
 
-                            if x+2 > count:
+                            if x + 2 > count:
                                 play(1)
                             else:
                                 play(x)
@@ -329,9 +329,9 @@ else:
                     cont.destroy()
                     keyboard.remove_hotkey("pagedown")
                     keyboard.add_hotkey("pagedown", lambda: [pausebut()])
-                    pause = Button(win, width=3, height=1, text="||", bg="black", fg="white",
-                                   font="Consolas 20", command=lambda: [pausebut()])
-                    pause.place(x=555, y=420)
+                    pause = Button(win, width = 3, height = 1, text = "||", bg = "black", fg = "white",
+                                   font = "Consolas 20", command = lambda: [pausebut()])
+                    pause.place(x = 555, y = 420)
 
                 keyboard.remove_hotkey("pagedown")
                 keyboard.add_hotkey("pagedown", lambda:[contbut()])
@@ -339,9 +339,9 @@ else:
                 mixer.music.pause()
                 win.after_cancel(starttimer)
                 win.after_cancel(startline)
-                cont = Button(win, width=3, height=1, text=">", bg="black", fg="white",
-                               font="Consolas 20", command=lambda: [contbut()])
-                cont.place(x=655, y=420)
+                cont = Button(win, width = 3, height = 1, text = ">", bg = "black", fg = "white",
+                               font = "Consolas 20", command = lambda: [contbut()])
+                cont.place(x = 655, y = 420)
             def skipbut(x):
                 global cont
                 global pause
@@ -358,9 +358,9 @@ else:
                     pause.destroy()
                 except:
                     pass
-                pause = Button(win, width=3, height=1, text="||", bg="black", fg="white",
-                               font="Consolas 20", command=lambda: [pausebut()])
-                pause.place(x=555, y=420)
+                pause = Button(win, width = 3, height = 1, text = "||", bg = "black", fg = "white",
+                               font = "Consolas 20", command = lambda: [pausebut()])
+                pause.place(x = 555, y = 420)
                 global starttimer
                 global startline
                 global second
@@ -368,7 +368,7 @@ else:
                 mixer.music.stop()
                 win.after_cancel(starttimer)
                 win.after_cancel(startline)
-                if x+2 > count:
+                if x + 2 > count:
                     x = 0
                 else:
                     x += 1
@@ -394,10 +394,10 @@ else:
             keyboard.add_hotkey("end", lambda: [skipbut(x)])
             pause  =Button(win, width=3, height=1, text="||", bg="black", fg="white",
                          font="Consolas 20", command=lambda: [pausebut()])
-            pause.place(x=555, y=420)
+            pause.place(x = 555, y = 420)
             skip = Button(win, width=3, height=1, text=">>", bg="black", fg="white",
                            font="Consolas 20", command=lambda: [skipbut(x)])
-            skip.place(x=755, y=420)
+            skip.place(x = 755, y = 420)
             line(x)
 
         #def music_top(x,listed):
@@ -415,7 +415,7 @@ else:
         singer = []
         clears = []
         def song_find():
-            webbrowser.open("https://ru.apporange.space/", new=2)
+            webbrowser.open("https://ru.apporange.space/", new = 2)
 
         def checks():
             playsongx.append(Button(win, width=3, height=1, text="▶", bg="#1C098B", fg="white", font="Consolas 15",
@@ -469,24 +469,24 @@ else:
                               font="Comfortoo 10"))
 
 
-            timesong.append(Label(win, width=5, height=1, text=time.strftime("%M:%S", time.gmtime(duration[a])), bg="grey",
-                                  font="Comfortoo 9"))
+            timesong.append(Label(win, width = 5, height = 1, text = time.strftime("%M:%S", time.gmtime(duration[a])), bg = "grey",
+                                  font = "Comfortoo 9"))
             songs += 1
 
-            singer[a].place(x=100,y=115+add2)
-            song[a].place(x=100, y=95+add2)
+            singer[a].place(x = 100, y = 115 + add2)
+            song[a].place(x = 100, y = 95 + add2)
 
             checks()
-            playsongx[a].place(x=50, y=95+add2)
-            timesong[a].place(x=370, y=105+add2)
+            playsongx[a].place(x = 50, y = 95 + add2)
+            timesong[a].place(x = 370, y = 105 + add2)
             a += 1
-            add2+=43
+            add2 += 43
 
-        add_song = Button(win, width=28, height=1, text="Add Song", bg="black", fg="yellow", font="Consolas 18",
-                          command=lambda: [song_find()])
-        if count==15:
+        add_song = Button(win, width = 28, height = 1, text = "Add Song", bg = "black", fg = "yellow", font = "Consolas 18",
+                          command = lambda: [song_find()])
+        if count == 15:
             pass
         else:
-            add_song.place(x=45, y=700)
+            add_song.place(x = 45, y = 700)
 
         win.mainloop()
